@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  tfserve:
+    image: tensorflow/serving
+    ports:
+      - 8501:8501
+    environment:
+      MODEL_NAME: dog_model
+    volumes:
+      - ./models/dog_model:/models/dog_model
+    depends_on:
+      - streamlit-tfserve
+
+  streamlit-tfserve:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+      args:
+        CONFIG: TENSORFLOW
+        ENV: COMPOSE
+    image: streamlit:minikube
+    ports:
+      - 8502:8502
+    volumes:
+      - ./models:/app/models
