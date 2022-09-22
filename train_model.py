@@ -85,10 +85,10 @@ def train():
 
 if __name__ == "__main__":
 
-    # os.system(
-    #     "wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip"
-    # )
-    # os.system("unzip -qo dogImages.zip")
-    # os.system("rm dogImages.zip")
-    # logging.info("Test")
+    os.system(
+        "wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip"
+    )
+    os.system("unzip -qo dogImages.zip")
+    os.system("rm dogImages.zip")
+    logging.info("Test")
     train()
